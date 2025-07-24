@@ -21,8 +21,8 @@ def load_and_process_data():
     # Load both datasets
     try:
         # Update these paths to your actual file locations
-        review_path = r"https://github.com/hananiadnann-hub/FYP-App/blob/main/bank_reviews.xlsx"
-        esg_path = r"https://github.com/hananiadnann-hub/FYP-App/blob/main/sustainable_banking.xlsx"
+        review_path = r"bank_reviews.xlsx"
+        esg_path = r"sustainable_banking.xlsx"
         
         reviews_df = pd.read_excel(review_path)
         esg_df = pd.read_excel(esg_path)
