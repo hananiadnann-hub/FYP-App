@@ -45,14 +45,28 @@ def load_and_process_data():
             combined_df[col].fillna(combined_df[col].median(), inplace=True)
         
         # Create ESG score (simplified version of your R logic)
+        #combined_df['esg_score'] = np.where(
+         #   combined_df['type'] == "Green", 5,
+         #   np.clip(
+          #      (combined_df['coupon'].apply(lambda x: 5 - 4 * (x / combined_df['coupon'].max())) + 
+           #     (combined_df['maturity'].apply(lambda x: 5 * (x / combined_df['maturity'].max()))) / 2,
+            #    1, 5
+            #).round()
+        #))
+        # Corrected ESG score calculation
         combined_df['esg_score'] = np.where(
-            combined_df['type'] == "Green", 5,
+            combined_df['type'] == "Green", 
+            5,
             np.clip(
-                (combined_df['coupon'].apply(lambda x: 5 - 4 * (x / combined_df['coupon'].max())) + 
-                (combined_df['maturity'].apply(lambda x: 5 * (x / combined_df['maturity'].max()))) / 2,
-                1, 5
+                (
+                    combined_df['coupon'].apply(lambda x: 5 - 4 * (x / combined_df['coupon'].max())) 
+                    + 
+                    combined_df['maturity'].apply(lambda x: 5 * (x / combined_df['maturity'].max()))
+                ) / 2,
+                1, 
+                5
             ).round()
-        ))
+        )
         
         # Create retention flag (simplified version)
         combined_df['customer_retention'] = np.where(
