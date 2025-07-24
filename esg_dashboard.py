@@ -75,7 +75,7 @@ def load_and_process_data():
         )
         
         # Cluster analysis
-        cluster_cols = ['esg_score', 'rating', 'usefulcount']
+        cluster_cols = ['esg_score', 'rating', 'useful_count']
         scaler = StandardScaler()
         cluster_data = scaler.fit_transform(combined_df[cluster_cols].dropna())
         
@@ -187,7 +187,7 @@ if not df.empty:
             x='rating',
             y='esg_score',
             color='segment_name',
-            hover_data=['address', 'usefulcount'],
+            hover_data=['address', 'useful_count'],
             title="Customer Segments by Rating and ESG Score"
         )
         st.plotly_chart(fig2, use_container_width=True)
@@ -199,7 +199,7 @@ if not df.empty:
             'esg_score': 'mean',
             'rating': 'mean',
             'customer_retention': 'mean',
-            'usefulcount': 'mean'
+            'useful_count': 'mean'
         }).reset_index()
         
         st.dataframe(
@@ -207,7 +207,7 @@ if not df.empty:
                 'esg_score': '{:.1f}',
                 'rating': '{:.1f}',
                 'customer_retention': '{:.1%}',
-                'usefulcount': '{:.1f}'
+                'useful_count': '{:.1f}'
             }),
             use_container_width=True
         )
