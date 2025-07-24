@@ -21,8 +21,8 @@ def load_and_process_data():
     # Load both datasets
     try:
         # Update these paths to your actual file locations
-        review_path = "C:\Users\ASUS\Downloads\FYP App\bank_reviews.xlsx"
-        esg_path = "C:\Users\ASUS\Downloads\FYP App\sustainable_banking.xlsx"
+        review_path = r"C:\Users\ASUS\Downloads\FYP App\bank_reviews.xlsx"
+        esg_path = r"C:\Users\ASUS\Downloads\FYP App\sustainable_banking.xlsx"
         
         reviews_df = pd.read_excel(review_path)
         esg_df = pd.read_excel(esg_path)
