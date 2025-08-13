@@ -71,7 +71,7 @@ def load_and_process_data():
         # Create retention flag (simplified version)
         combined_df['customer_retention'] = np.where(
             combined_df['review'].str.contains(r'(\d+\s+years?|since\s+\d+)', regex=True, na=False),
-            1, 0
+            0, 1
         )
         
         # Cluster analysis
